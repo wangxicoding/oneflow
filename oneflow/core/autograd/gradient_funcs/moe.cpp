@@ -37,9 +37,6 @@ class MOEDispatch : public OpExprGradFunction<MOECaptureState> {
                       const TensorTuple& outputs, const AttrMap& attrs) const override;
   Maybe<void> Apply(const MOECaptureState* ctx, const TensorTuple& out_grads,
                     TensorTuple* in_grads) const override;
-
- private:
-  AttrMap base_attrs_;
 };
 
 class MOECombine : public OpExprGradFunction<MOECaptureState> {
@@ -49,9 +46,6 @@ class MOECombine : public OpExprGradFunction<MOECaptureState> {
                       const TensorTuple& outputs, const AttrMap& attrs) const override;
   Maybe<void> Apply(const MOECaptureState* ctx, const TensorTuple& out_grads,
                     TensorTuple* in_grads) const override;
-
- private:
-  AttrMap base_attrs_;
 };
 
 /********** MOECDispatch Gradient ***********/

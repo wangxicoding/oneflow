@@ -108,12 +108,12 @@ class CpuMOECombineKernel final : public user_op::OpKernel {
           if (k == 0) {
             for (int j = 0; j < hidden_size; ++j) {
               out_ptr[i * hidden_size + j] =
-                  gate * in_ptr[(indices_ptr[i] * capacity + locations_ptr[i]) * hidden_size + j];
+                  gate * in_ptr[(index * capacity + location) * hidden_size + j];
             }
           } else {
             for (int j = 0; j < hidden_size; ++j) {
               out_ptr[i * hidden_size + j] +=
-                  gate * in_ptr[(indices_ptr[i] * capacity + locations_ptr[i]) * hidden_size + j];
+                  gate * in_ptr[(index * capacity + location) * hidden_size + j];
             }
           }
         } else {
